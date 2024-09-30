@@ -1,9 +1,28 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './Mesa.css'
 
 export default function Mesa() {
 
     const [jogadores, setJogadores] = useState([])
+    const teclasAdicionadas = useRef(false)
+
+    useEffect(() => {
+
+        if (!teclasAdicionadas.current) {
+            teclasAdicionadas.current = true
+            document.addEventListener('keydown', (e) => {
+
+                if (e.key === 'c') {
+                    alert("Botão call pressionado")
+                }
+
+                if(e.key === 'a') {
+                    alert("All-in!")
+                }
+                
+            })
+        }
+    }, [])
 
     return (
         <div className='mesa'>
