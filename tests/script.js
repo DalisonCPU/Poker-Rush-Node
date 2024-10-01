@@ -1,3 +1,5 @@
+const dvSpeak = document.getElementById("screenSpeak")
+
 function speak(message, interrupt = false) {
     let speechDiv = document.createElement('div');
 
@@ -15,20 +17,16 @@ function speak(message, interrupt = false) {
     }
 
 
-    setTimeout(() => {
         speechDiv.textContent = message.replace(/<[^>]+>/g, '');
+    dvSpeak.appendChild(speechDiv);
 
-    }, 1)
-    document.body.appendChild(speechDiv);
-
-    // Opcionalmente, você pode remover o elemento após um tempo, se quiser
     setTimeout(() => {
-        document.body.removeChild(speechDiv);
+        speechDiv.remove()
     }, 3000); // Remove após 3 segundos, por exemplo
 }
 
 const btnTeste = document.getElementById('btnTeste')
 
 btnTeste.addEventListener("click", (() => {
-    speak("testando xdddd")
+    speak("que droga velho")
 }))
