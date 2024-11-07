@@ -22,7 +22,7 @@ function speak(message, interrupt = false) {
 
     setTimeout(() => {
         speechDiv.remove()
-    }, 3000); // Remove após 3 segundos, por exemplo
+    }, 1);
 }
 
 const btnTeste = document.getElementById('btnTeste')
